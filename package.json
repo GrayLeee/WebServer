@@ -18,6 +18,7 @@
   "homepage": "https://github.com/GrayLeee/WebServer#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "echarts": "^4.1.0",
     "ejs": "^2.6.1",
     "express": "^4.16.3"
   }

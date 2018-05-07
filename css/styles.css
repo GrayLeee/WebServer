@@ -1,0 +1,17 @@
+#div-choose {
+    width: 300px;
+    height: 800px;
+    align-items: center;
+    margin-top: 50px;
+    float: left;
+    border: 1px solid orange;
+}
+
+#div-chart {
+    width: 1000px;
+    height: 600px;
+    float: left;
+    margin-left: 50px;
+    margin-top: 50px;
+    border: 1px solid blue;
+}
