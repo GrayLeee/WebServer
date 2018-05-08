@@ -1,4 +1,4 @@
-var myChart = echarts.init(document.getElementById('main'));
+var myChart = echarts.init(document.getElementById('div-chart'));
 var option = {
     title:{
         text: 'ECharts 入门示例'

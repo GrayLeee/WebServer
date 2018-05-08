@@ -2,11 +2,11 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Echarts</title>
+    <title>Echarts</title> 
+     <!--引入CSS样式表-->
+    <link rel="stylesheet" href="styles.css" type="text/css">
     <!-- 引入 ECharts 文件 以CDN方式引入-->
     <script src="https://cdn.bootcss.com/echarts/4.0.4/echarts-en.common.js"></script>
-    <!--引入CSS样式表-->
-    <link rel="stylesheet" href="/css/styles.css" type="text/css">
 </head>
 
 <body>
@@ -15,22 +15,26 @@
         <div id="div-choose" class="div-choose">
             <h3 style="text-align: center">选择时间段</h3>
             年<select id="year">
-                <option value="2016">2016</option>
-                <option value="2017">2017</option>
-                <option value="2018">2018</option>
+                <% year.forEach(function(y) { %>
+                    <option value=y><%= y %></option>
+                <% }) %>
             </select>
             月<select id="month">
-                <!--从某个地方循环出来, todo-->
+                <% month.forEach(function(mon) { %>
+                   <option value=mon><%= mon %></option> 
+                <% }) %>
             </select>
             日<select id="day">
-                <!--todo-->
+                <% day.forEach(function (d) { %>
+                    <option value=d><%= d %></option>
+                <% }) %>
             </select>
             <button type="submit">确认</button>
             <button type="button">下载数据</button>
         </div>
     
         <!--准备div容器-->
-        <div id="main" class="div-chart"></div>
+        <div id="div-chart" class = "div-chart"></div>
         <script type="text/javascript" src="draw.js"></script>
     </div>
 </body>

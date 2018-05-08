@@ -1,6 +1,6 @@
 #div-choose {
     width: 300px;
-    height: 800px;
+    height: 600px;
     align-items: center;
     margin-top: 50px;
     float: left;
@@ -8,10 +8,10 @@
 }
 
 #div-chart {
-    width: 1000px;
+    width: 1050px;
     height: 600px;
     float: left;
-    margin-left: 50px;
+    margin-left: 70px;
     margin-top: 50px;
     border: 1px solid blue;
 }
