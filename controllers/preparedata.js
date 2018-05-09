@@ -1,8 +1,3 @@
-var bodyparser = require('body-parser');
-var urlencodedParser = bodyparser.urlencoded({
-    extended: false
-});
-
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
@@ -14,10 +9,9 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-//准备解析数据
 var data = [];
 var years = [], months = [], days = [];
-var yyy = [];
+
 connection.query('SELECT * FROM information', function(err, rows, fileds) {
     if (err) {
         throw err;
@@ -51,13 +45,12 @@ connection.query('SELECT * FROM information', function(err, rows, fileds) {
 
 });
 
-module.exports = function(app) {
-    app.get('/home', function(req, res) {
-        res.render('home', {
-            year: years,
-            month: months,
-            day: days,
-            data: data
-        });
-    });
+module.exports = function() {
+    var all = {
+        data: data,
+        years: years,
+        months: months,
+        days: days
+    };
+    return all;
 }
