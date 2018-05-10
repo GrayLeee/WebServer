@@ -1,4 +1,6 @@
 var myChart = echarts.init(document.getElementById('div-chart'));
+
+
 option = {
     title : {
         text: '温湿度变化',
@@ -14,7 +16,7 @@ option = {
     //定义两个图
     grid: [
         {x: '8%', y: '12%', height: '38%'},
-        {x: '8%', y: '57%', height: '36%'}
+        {x: '8%', y: '57%', height: '38%'}
     ],
 
     toolbox: {
@@ -63,6 +65,8 @@ option = {
         {
             name:'温度',
             type:'line',
+            xAxisIndex: 0,
+            yAxisIndex: 0,
             data:[11, 11, 15, 13, 12, 13, 10],
             markPoint : {
                 data : [
@@ -81,10 +85,11 @@ option = {
             type:'line',
             xAxisIndex: 1,
             yAxisIndex: 1,
-            data:[1, -2, 2, 5, 3, 2, 0],
+            data:[1, -2, 3, 2, 5, 3, 2, 0],
             markPoint : {
                 data : [
-                    {name : '周最低', value : -2, xAxis: 1, yAxis: -1.5}
+                    {type: 'max', name: '最大值'},
+                    {type: 'min', name: '最小值'}
                 ]
             },
             markLine : {

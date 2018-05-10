@@ -29,7 +29,7 @@
             <br>
             <td>月：</td>
             <select id="month" >
-                <% month.forEach(function(mon) { %>
+                <% month.forEach(function(mon) { %> 
                    <option value=mon><%= mon %></option> 
                 <% }) %>
             </select>
@@ -56,12 +56,15 @@
             <div style="margin-top: 30px">
                 <button id="confirm" type="submit">确认</button>
                 <button id="download" type="button">下载数据</button>
+
             </div>
         </div>
-    
+        
         <!--准备div容器-->
         <div id="div-chart" class = "div-chart"></div>
         <script type="text/javascript" src="draw.js"></script>
+        <script>
+        </script>
     </div>
 </body>
 </html>

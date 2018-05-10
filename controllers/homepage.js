@@ -1,8 +1,3 @@
-var bodyparser = require('body-parser');
-var urlencodedParser = bodyparser.urlencoded({
-    extended: false
-});
-
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
@@ -48,7 +43,6 @@ connection.query('SELECT * FROM information', function(err, rows, fileds) {
     days = days.filter(function(element, index, self) {
         return self.indexOf(element) === index;
     });
-
 });
 
 module.exports = function(app) {
@@ -59,5 +53,31 @@ module.exports = function(app) {
             day: days,
             data: data
         });
+    });
+
+    var bodyparser = require('body-parser');
+    var jsonParser = bodyparser.json();
+
+    //处理传输的json请求
+    app.post('/home', jsonParser, function(req, res) {
+        //保存数据到数据库, req应该是个json对象
+        var mysql = require('mysql');
+        var connection = mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: '123456',
+            database: 'test'
+        });
+        connection.connect();
+
+        //构造数据
+        var time = String(req.body.time);
+        var temperature = String(req.body.temperature);
+        var humidity = String(req.body.humidity);
+        insertData = `INSERT INTO information (time, temperature, humidity) VALUES("${time}", ${temperature}, ${humidity})`;
+        
+        //插入数据
+        connection.query(insertData);
+        res.send(true);
     });
 }
