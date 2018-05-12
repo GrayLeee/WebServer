@@ -17,7 +17,7 @@ connection.query('SELECT * FROM information', function(err, rows, fileds) {
     if (err) {
         throw err;
     }
-    for (var i = 0; i < rows.length; i ++) {
+    for (var i = 0; i < rows.length; i++) {
         //这里把时间解析成了字符数组，形式如[ 'Wed', 'May', '09', '2018', '09:52:18', 'GMT+0800', '(中国标准时间)' ]
         //这段代码真的很丑...
         var time = String(rows[i].time).split(' ');
@@ -57,9 +57,12 @@ module.exports = function(app) {
 
     var bodyparser = require('body-parser');
     var jsonParser = bodyparser.json();
+    var urlencodedParser = bodyparser.urlencoded({
+        extended: false
+    });
 
     //处理传输的json请求
-    app.post('/home', jsonParser, function(req, res) {
+    app.post('/home', urlencodedParser, function(req, res) {
         //保存数据到数据库, req应该是个json对象
         var mysql = require('mysql');
         var connection = mysql.createConnection({
@@ -78,6 +81,7 @@ module.exports = function(app) {
         
         //插入数据
         connection.query(insertData);
+        console.log(req.body);
         res.send(true);
     });
 }

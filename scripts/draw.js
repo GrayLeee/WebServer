@@ -1,6 +1,18 @@
+//创建图形实例
 var myChart = echarts.init(document.getElementById('div-chart'));
 
+//获取查询时间
+var year_begin = document.getElementById('year-begin').innerText;
+var year_end = document.getElementById('year-end').innerText;
+var month_begin = document.getElementById('month-begin').innerText;
+var month_end = document.getElementById('month-end').innerText;
+var day_begin = document.getElementById('day-begin').innerText;
+var day_end = document.getElementById('day-end').innerText;
 
+//获取数据
+
+
+//设置绘图选项
 option = {
     title : {
         text: '温湿度变化',
@@ -10,7 +22,7 @@ option = {
         trigger: 'axis'
     },
     legend: {
-        data:['温度','湿度']
+        data:['温度', '湿度']
     },
 
     //定义两个图
