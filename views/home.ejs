@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css" type="text/css">
     <!-- 引入 ECharts 文件 以CDN方式引入-->    
     <script src="https://cdn.bootcss.com/echarts/4.0.4/echarts-en.common.js"></script>    
-    <script src="https://cdn.bootcss.com/require.js/2.3.5/require.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
 </head>
 
 <body>
@@ -18,53 +18,49 @@
             <td>年：</td>
             <select id="year-begin" >
                 <% year.forEach(function(y) { %>
-                    <option value=y><%= y %></option>
+                    <option value=<%= y %>><%= y %></option>
                 <% }) %>
             </select>
             <td>-</td>
             <select id="year-end">
                 <% year.forEach(function(y) { %>
-                    <option value=y><%= y %></option>
+                    <option value=<%= y %>><%= y %></option>
                 <% }) %>
             </select>
             <br>
             <td>月：</td>
             <select id="month-begin" >
                 <% month.forEach(function(mon) { %> 
-                   <option value=mon><%= mon %></option> 
+                   <option value=<%= mon %>><%= mon %></option> 
                 <% }) %>
             </select>
             <td>-</td>
             <select id="month-end" >
                 <% month.forEach(function(mon) { %>
-                   <option value=mon><%= mon %></option> 
+                    <option value=<%= mon %>><%= mon %></option>  
                 <% }) %>
             </select>
             <br>
             <td>日：</td>
             <select id="day-begin" >
                 <% day.forEach(function (d) { %>
-                    <option value=d><%= d %></option>
+                    <option value=<%= d %>><%= d %></option>
                 <% }) %>
             </select>
             <td>-</td>
             <select id="day-end">
                 <% day.forEach(function (d) { %>
-                    <option value=d><%= d %></option>
+                    <option value=<%= d %>><%= d %></option>
                 <% }) %>
             </select>
             <br>
-            <script>
-                var paint = function(message) {
-                    alert(message);
-                }
-            </script>
+            <script src="prepare.js"></script>
+
             <div style="margin-top: 30px">
-                <button id="confirm" type="submit" onclick="paint('你好啊')" >确认</button>
-                <button id="download" type="button" onclick="download()">下载数据</button>
+                <button id="confirm" type="submit" onclick="paint()" >确认</button>
+                <button id="download" type="button" onclick="download()" style="visibility: hidden">下载数据</button>
             </div>
         </div>
-        
         <!--为画幅准备div容器-->
         <div id="div-chart" class = "div-chart"></div>
         <script type="text/javascript" src="draw.js"></script>

@@ -11,7 +11,6 @@ app.use(express.static('./css'));
 // app.use(bodyparser.urlencoded({
 //     extended: false
 // }));
-app.use(bodyparser.json())
 
 //设置模板引擎
 app.set('view engine', 'ejs');
