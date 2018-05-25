@@ -5,7 +5,7 @@
     <title>Test page</title> 
      <!--引入CSS样式表-->
     <link rel="stylesheet" href="styles.css" type="text/css">
-    <!-- 引入 ECharts 文件 以CDN方式引入-->    
+    <!-- 引入 ECharts和jquery 文件 以CDN方式引入-->    
     <script src="https://cdn.bootcss.com/echarts/4.0.4/echarts-en.common.js"></script>    
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
 </head>
@@ -55,7 +55,6 @@
             </select>
             <br>
             <script src="prepare.js"></script>
-
             <div style="margin-top: 30px">
                 <button id="confirm" type="submit" onclick="paint()" >确认</button>
                 <button id="download" type="button" onclick="download()" style="visibility: hidden">下载数据</button>

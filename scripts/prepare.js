@@ -16,7 +16,7 @@ var paint = function() {
             draw(data);
         }
         else {
-            console.log('fuck');
+            console.log('get data failed');
         }
     });
 }
@@ -135,8 +135,6 @@ var draw = function(data) {
                 }
             }
         ]
-    };
-                   
+    };             
     myChart.setOption(option);
-
 }

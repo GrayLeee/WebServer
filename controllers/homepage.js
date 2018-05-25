@@ -29,6 +29,7 @@ var TimeFormat = function(time) {
 }
 
 //准备解析数据日期
+//这里可以重构一下，把连接数据查询构造成一个函数
 var years = [], months = [], days = [];
 var yyy = [];
 connection.query('SELECT * FROM information', function(err, rows, fileds) {
@@ -37,7 +38,6 @@ connection.query('SELECT * FROM information', function(err, rows, fileds) {
     }
     for (var i = 0; i < rows.length; i++) {
         //这里把时间解析成了字符数组，形式如[ 'Wed', 'May', '09', '2018', '09:52:18', 'GMT+0800', '(中国标准时间)' ]
-        //这段代码真的很丑...
         var time = String(rows[i].time).split(' ');
         years.push(time[3]);
         months.push(ConvertToNum(time[1]));
@@ -53,8 +53,6 @@ connection.query('SELECT * FROM information', function(err, rows, fileds) {
         return self.indexOf(element) === index;
     });
 });
-
-
 
 module.exports = function(app) {
     app.get('/home', function(req, res) {
@@ -124,7 +122,7 @@ module.exports = function(app) {
                 }
             });
         } else {
-            res.send('fuck');
+            res.send('failed');
         }
     });
 }
